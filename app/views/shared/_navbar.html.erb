@@ -20,14 +20,15 @@
                 <li class="nav-item">
                     <%= link_to "Posts", posts_path, class:"nav-link" %>
                 </li>
-            </ul>
-            <div class="d-flex">
-                <% if user_signed_in? %>
-                    <%= link_to  "Sign out", destroy_user_session_path %>
-                <%else%>
-                    <%= link_to  "Sign In", new_user_session_path %>
-                <%end%>
-            </div>
+
+            <div class="d-flex my-2 my-lg-0 gap-3">
+            <% if user_signed_in? %>
+                <span>Welcome Home, <%= current_user.email %></span>
+                <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+                <% else %>
+                <%= link_to 'Sign in', new_user_session_path %>
+            <% end %>
+            </div>|
         </div>
     </div>
 </nav>
