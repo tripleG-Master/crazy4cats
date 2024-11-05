@@ -1,0 +1,33 @@
+<nav
+    class="navbar navbar-expand-md navbar-light bg-light"
+>
+    <div class="container">
+        <a class="navbar-brand" href="#">Crazy4cats</a>
+        <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+
+                <li class="nav-item">
+                    <%= link_to "Posts", posts_path, class:"nav-link" %>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <% if user_signed_in? %>
+                    <%= link_to  "Sign out", destroy_user_session_path %>
+                <%else%>
+                    <%= link_to  "Sign In", new_user_session_path %>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</nav>
