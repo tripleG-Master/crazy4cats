@@ -33,11 +33,16 @@
 
 <section class="container justify-content-center">
   <h2 class="text-center">More Comments</h2>
-  <% @post.comments.each do |comment| %>
-    <div class="col-12 col-md-4 my-3 mx-auto">
-      <strong><%= comment.user ? comment.user.email : 'Anonymous' %>:</strong> <%= comment.content %>
-    </div>
-  <% end %>
+  <div class="col-12 col-md-4 my-3 mx-auto">
+    <ul class="list-group">  
+    <% @post.comments.each do |comment| %>
+      <li class="list-group-item d-flex flex-column">
+        <strong><%= comment.user ? comment.user.email : 'Anonymous' %>:</strong>
+        <span><%= comment.content %> </span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </section>
 
 

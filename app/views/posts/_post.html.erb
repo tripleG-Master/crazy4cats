@@ -1,8 +1,7 @@
 
   <div class="card text-dark bg-light mx-auto" id="<%= dom_id post %>">
-  
     <%if post.image.persisted? %>
-      <%= image_tag post.image , class:"card-img-top img-fluid ",alt:"Image not available" %>
+      <%= image_tag post.image , class:"card-img-top object-fit-contain", alt:"Image not available", style:"max-height:200px" %>
     <%end%>
     <div class="card-body">
       <span style="font-size:x-small;"><%= "@#{post.user.email}" %></span>

@@ -2,14 +2,12 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  resources :posts
   
-  resources :posts do
+  resources :posts, except: [:edit, :update] do
+
     resources :comments, only: [:create, :destroy]
-  end
-  
-  resources :posts do
     resources :likes, only: [:create, :destroy]
+    
   end
 
   # 404

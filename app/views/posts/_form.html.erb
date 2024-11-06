@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div class=>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title, required:true %>
+  <div class="mb-3">
+    <span style="font-size:x-small;"><%= "@#{current_user.email}" %></span>
   </div>
 
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image , required:true%>
+  <div class="mb-3">
+    <%= form.label :title, class:"d-none" %>
+    <%= form.text_area :title, class:"form-control", required:true %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.label :image, "Select your image" , class:"form-label" %>
+    <%= form.file_field :image , class:"form-control", required:true%>
   </div>
+
+  <div class="mb-5">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+
 <% end %>

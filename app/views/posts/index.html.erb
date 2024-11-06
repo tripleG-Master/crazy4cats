@@ -4,13 +4,10 @@
 
 <section class="row justify-content-center">
   <% @posts.each do |post| %>
-    <div class="col-12 col-md-4 my-3">
+    <div class="col-12 col-md-4 m-3 ">
       <%= link_to post, class:"text-decoration-none text-dark" do%>
         <%= render post %>
       <% end %>
     </div>
   <% end %>
 </div>
-
-<%= link_to "New post", new_post_path %>
-
