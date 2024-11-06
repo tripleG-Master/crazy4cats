@@ -1,14 +1,16 @@
 
-
-<div class="col-12 col-md-4 mx-auto">
-<div class="card text-white bg-primary" id="<%= dom_id post %>">
-  <%= image_tag post.image , class:"card-img-top",alt:"Image not available" %>
-  <div class="card-body">
-    <h4 class="card-title"><%= post.title %></h4>
-    <span class="card-subtitle"><%= "@#{post.user.email}" %></span>
+  <div class="card text-dark bg-light mx-auto" id="<%= dom_id post %>">
+  
+    <%= image_tag post.image , class:"card-img-top img-fluid ",alt:"Image not available" %>
+  
+    <div class="card-body">
+      <span style="font-size:x-small;"><%= "@#{post.user.email}" %></span>
+      <p class="lead">
+        <%= post.title %>
+      </p>
+    </div>
+  
+    <div class="card-footer">
+      <small class="text-muted">Posted at: <%= post.created_at.strftime("%B, %d of %Y") %></small>
+    </div>
   </div>
-  <div class="card-footer">
-    <small class="text-muted">Posted at: <%= post.created_at %></small>
-    <%= link_to "Show", post , class:"btn btn-primary"%>
-</div>
-</div>

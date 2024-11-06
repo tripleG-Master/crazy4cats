@@ -3,32 +3,30 @@
 >
     <div class="container">
         <a class="navbar-brand" href="#">Crazy4cats</a>
-        <button
-            class="navbar-toggler d-lg-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-
                 <li class="nav-item">
                     <%= link_to "Posts", posts_path, class:"nav-link" %>
                 </li>
-
-            <div class="d-flex my-2 my-lg-0 gap-3">
+                
+                <li class="nav-item me-0">
+                    <%= link_to "New Post", new_post_path, class:"btn btn-success" %>
+                </li>
+                
+            </ul>
+            <div class="d-flex me-0 my-2 gap-3">
             <% if user_signed_in? %>
                 <span>Welcome Home, <%= current_user.email %></span>
                 <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
-                <% else %>
+            <%elsif User.count == 0 %>
+                <%= link_to 'Register', new_user_registration_path %>
+            <% else %>
                 <%= link_to 'Sign in', new_user_session_path %>
             <% end %>
-            </div>|
+            </div>
         </div>
     </div>
 </nav>

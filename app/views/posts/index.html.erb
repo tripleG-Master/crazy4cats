@@ -1,12 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Posts" %>
 
 <h1 class="text-center">Posts</h1>
 
-<div id="posts" class="container-fluid">
+<section class="row justify-content-center">
   <% @posts.each do |post| %>
-    <%= render post %>
+    <div class="col-12 col-md-4 my-3">
+      <%= link_to post, class:"text-decoration-none text-dark" do%>
+        <%= render post %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 

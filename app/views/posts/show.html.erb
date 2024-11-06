@@ -1,33 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @post %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
-</div>
-
-<h2>Add a comment</h2>
-
-
-<%= form_with(model: [ @post, Comment.new ], local: true) do |form| %>
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+<section class="row justify-content-center">
+  <div class="col-12 col-md-4 my-3">
+    <%= render @post%>
   </div>
-  <div class="actions">
-    <%= form.submit 'Agregar Comentario' %>
+</section>
+
+<section class="row justify-content-center">
+  <div class="col-12 col-md-4 my-3">
+    <div class="d-flex justify-content-center">
+      <% if current_user && current_user.liked_posts.include?(@post) %>
+        <%= render "likes/destroy", post: @post%>
+      <% else %>
+        <%= render "likes/create", post: @post%>
+      <%end%>
+    </div>
   </div>
-<% end %>
+</section>
+
+<section class="row justify-content-center">
+  <h2 class="text-center">Add a comment</h2>
+  <div class="col-12 col-md-4 my-3">
+    <%= form_with(model: [ @post, Comment.new ], local: true) do |form| %>
+      <div class="mb-3">
+        <%= form.label :content, class:"form-label d-none" %>
+        <%= form.text_area :content, class:"form-control" %>
+      </div>
+      <div class="mb-5">
+        <%= form.submit 'Add Comment', class:"btn btn-primary" %>
+      </div>
+    <% end %>  
+  </div>
+</section>
+
+<section class="container justify-content-center">
+  <h2 class="text-center">More Comments</h2>
+  <% @post.comments.each do |comment| %>
+    <div class="col-12 col-md-4 my-3 mx-auto">
+      <strong><%= comment.user ? comment.user.email : 'Anonymous' %>:</strong> <%= comment.content %>
+    </div>
+  <% end %>
+</section>
 
 
-<h2>Comentarios</h2>
-
-
-<% @post.comments.each do |comment| %>
-  <p>
-    <strong><%= comment.user ? comment.user.email : 'Anonymous' %>:</strong> <%= comment.content %>
-  </p>
-<% end %>

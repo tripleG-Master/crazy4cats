@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @like_count = @post.likes.count # Contar los likes del post
   end
 
   # GET /posts/new
