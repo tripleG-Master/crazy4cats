@@ -1,8 +1,9 @@
 
   <div class="card text-dark bg-light mx-auto" id="<%= dom_id post %>">
   
-    <%= image_tag post.image , class:"card-img-top img-fluid ",alt:"Image not available" %>
-  
+    <%if post.image.persisted? %>
+      <%= image_tag post.image , class:"card-img-top img-fluid ",alt:"Image not available" %>
+    <%end%>
     <div class="card-body">
       <span style="font-size:x-small;"><%= "@#{post.user.email}" %></span>
       <p class="lead">
@@ -12,5 +13,6 @@
   
     <div class="card-footer">
       <small class="text-muted">Posted at: <%= post.created_at.strftime("%B, %d of %Y") %></small>
+      
     </div>
   </div>

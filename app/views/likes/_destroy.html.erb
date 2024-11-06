@@ -1,3 +1,8 @@
-<%= button_to post_like_path(post), method: :delete, class: 'btn btn-primary' do %>
-  <i class="bi bi-hand-thumbs-up-fill"> Liked</i>
+<%= button_to post_like_path(post), method: :delete, class: 'btn btn-primary position-relative' do %>
+  <i class="bi bi-hand-thumbs-up-fill">
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+      <%= like_count %> 
+    </span>
+    <%if like_count == 1 %>Like<%else%>Likes<%end%>
+  </i>
 <%end%>

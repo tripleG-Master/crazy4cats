@@ -1,3 +1,8 @@
-<%= button_to post_likes_path(post), method: :post, class: 'btn btn-outline-primary mx-auto' do %>
-    <i class="bi bi-hand-thumbs-up"> Like</i>
+<%= button_to post_likes_path(post), method: :post, class: 'btn btn-outline-primary position-relative' do %>
+    <i class="bi bi-hand-thumbs-up"> 
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+          <%= like_count %> 
+        </span>
+        Like
+    </i>
 <%end%>

@@ -1,6 +1,6 @@
 <section class="row justify-content-center">
   <div class="col-12 col-md-4 my-3">
-    <%= render @post%>
+    <%= render @post, like_count: @like_count%>
   </div>
 </section>
 
@@ -8,9 +8,9 @@
   <div class="col-12 col-md-4 my-3">
     <div class="d-flex justify-content-center">
       <% if current_user && current_user.liked_posts.include?(@post) %>
-        <%= render "likes/destroy", post: @post%>
+        <%= render "likes/destroy", post: @post, like_count: @like_count%>
       <% else %>
-        <%= render "likes/create", post: @post%>
+        <%= render "likes/create", post: @post, like_count: @like_count %>
       <%end%>
     </div>
   </div>
