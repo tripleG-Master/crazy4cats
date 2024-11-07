@@ -13,7 +13,7 @@ Proyecto que muestra la relacion N:N de usuarios y likes a traves de
 Sigue estos pasos para configurar el proyecto en tu máquina local:
 
 1. Clona el repositorio de GitHub.
-git clone https://github.com/tu_usuario/nombre_del_proyecto.git
+git clone https://github.com/tripleG-Master/crazy4cats.git
 
 2. Dentro de la carpeta raiz del proyecto busca el archivo config/database.yml y editalo con tus parametros de base de datos
 
