@@ -40,13 +40,11 @@ A excepcion de la funcionalidad mailer y los roles, el proyecto consta de una ap
 
 Los usuarios disponibles para pruebas son:
 
-catlover@crazy4cats.com
-<div style="page-break-after: always;"></div>
-migthycat@mail.com
-<div style="page-break-after: always;"></div>
-nonloon@mail.com 
-<div style="page-break-after: always;"></div>
-testing@mail.com
+<div style="page-break-after: always;">catlover@crazy4cats.com</div>
+<div style="page-break-after: always;">migthycat@mail.com</div>
+<div style="page-break-after: always;">testing@mail.com</div>
+<div style="page-break-after: always;">testing@mail.com</div>
+
 
 La contraseña es "password"
 
