@@ -1,10 +1,10 @@
 <% content_for :title, "Posts" %>
 
-<h1 class="text-center">Posts</h1>
+<h1 class="text-center display-2">Posts</h1>
 
 <section class="row justify-content-center">
   <% @posts.each do |post| %>
-    <div class="col-12 col-md-4 m-3 ">
+    <div class="col-10 col-md-3 m-1">
       <%= link_to post, class:"text-decoration-none text-dark" do%>
         <%= render post %>
       <% end %>

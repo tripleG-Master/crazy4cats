@@ -12,19 +12,21 @@
                     <%= link_to "Posts", posts_path, class:"nav-link" %>
                 </li>
                 
+                <% if user_signed_in? %>
                 <li class="nav-item me-0">
-                    <%= link_to "New Post", new_post_path, class:"btn btn-success" %>
+                    <%= link_to "Post your cat", new_post_path, class:"btn btn-success" %>
                 </li>
+                <%end%>
                 
             </ul>
-            <div class="d-flex me-0 my-2 gap-3">
+            <div class="d-flex me-0 my-2 gap-3 text-decoration-none">
             <% if user_signed_in? %>
                 <span>Welcome Home, <%= current_user.email %></span>
-                <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+                <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete }, class:"btn-outline-success text-decoration-none" %>
             <%elsif User.count == 0 %>
-                <%= link_to 'Register', new_user_registration_path %>
+                <%= link_to 'Register', new_user_registration_path, class:"btn-outline-success text-decoration-none" %>
             <% else %>
-                <%= link_to 'Sign in', new_user_session_path %>
+                <%= link_to 'Sign in', new_user_session_path, class:"btn btn-outline-success text-decoration-none" %>
             <% end %>
             </div>
         </div>
