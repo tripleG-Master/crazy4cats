@@ -1,6 +1,4 @@
-# Nombre del Proyecto
-
-Crazy4Cats
+# Crazy4Cats
 Proyecto que muestra la relacion N:N de usuarios y likes a traves de
 
 ## Requisitos
